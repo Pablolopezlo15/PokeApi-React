@@ -2,32 +2,48 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Cabecera from './cabecera'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [offset, setOffset] = useState(0);
+    const [pokemons, setPokemons] = useState([]);
 
-  return (
+    function peticion() {
+        fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`)
+        .then((response) => response.json())
+        .then((data) => setPokemons(prevPokemons => [...prevPokemons, ...data.results]),
+                        setOffset(prevOffset => prevOffset + 20)
+        )
+        console.log(pokemons);
+    }
+
+    function peticionDetalles(name) {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`)
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+
+    }
+
+
+    return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Cabecera />
+        <input type="text"  placeholder='Buscar...'></input>
+        <button onClick={peticion}>Cargar Pokemons</button>
+        <div>
+            {pokemons.map((pokemon) => (
+                <>
+                    <p key={pokemon.name}>{pokemon.name}</p>
+                    <button onClick={peticionDetalles(pokemon.name)}>Detalles</button>
+                    {/* <img src={pokemon.sprites.front_default} alt="" /> */}
+
+                </>
+                
+            ))}
+        </div>
+        <button onClick={peticion}>Cargar más</button>
+
+    
     </>
   )
 }
