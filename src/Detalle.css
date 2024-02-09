@@ -1,0 +1,51 @@
+.detalle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+
+}
+.name::first-letter{
+    text-transform: uppercase;
+}
+.card-Pokemon{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 80vh;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.card-Pokemon:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.imagenes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5rem;
+    margin-top: 20px;
+    width: 60%;
+}
+
+.imagen-principal{
+    
+    width: 150px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.imagen-principal img{
+    width: 100%;
+
+}
+
+.info{
+    width: 40%;
+    margin: 2rem;
+}

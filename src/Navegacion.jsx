@@ -7,6 +7,7 @@ function Navegacion() {
         <>
             <Link to="/">Home</Link>
             <Link to="/pokemon">Pokemons</Link>
+            <Link to="/login">Login</Link>
         </>
     );
 }

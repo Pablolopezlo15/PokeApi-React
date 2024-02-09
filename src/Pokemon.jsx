@@ -18,14 +18,17 @@ function Pokemon() {
     const [pokemonBuscado, setPokemonBuscado] = useState(null);
 
     function peticion() {
-        fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=8`)
-        .then((response) => response.json())
-        .then((data) => setPokemons(prevPokemons => [...prevPokemons, ...data.results]),
-                        setOffset(prevOffset => prevOffset + 20),
-        )
-        
-                        
-        console.log(pokemons);
+        fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=9`)
+            .then((response) => response.json())
+            .then((data) => {
+                setPokemons(prevPokemons => [...prevPokemons, ...data.results]);
+                setOffset(prevOffset => prevOffset + 20);
+    
+                // Hacer una petición de los detalles de cada Pokémon
+                data.results.forEach(pokemon => {
+                    peticionDetalles(pokemon.name);
+                });
+            });
     }
 
     function peticionDetalles(nombre) {
@@ -52,6 +55,10 @@ function Pokemon() {
 
     }
 
+    useEffect(() => {
+        peticion();
+    }, []);
+
 
     return (
     <>
@@ -64,27 +71,20 @@ function Pokemon() {
         <div className='container'>
             <div  class="container-pokemons">
         
-                {pokemons.map((pokemon, index) => {
-                    if(pokemonBuscado && pokemon.name !== pokemonBuscado) {
-                        return (
-                            <div key={index} className="pokemon">
-                                <Link to={`/pokemon/${index + 1}`}>
-                                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`} alt={pokemon.name} />
-                                    <p>{pokemon.name}</p>
-                                </Link>
-                            </div>
-                        )
-                    }
-                    return (
-                        <div key={index} className="pokemon">
-                            <Link to={`/pokemon/${index + 1}`}>
-                                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`} alt={pokemon.name} />
-                                <p>{pokemon.name}</p>
-                            </Link>
-                        </div>
-                    )
-                }
-                )}
+            {pokemons.map((pokemon, index) => {
+                const detalles = detallePokemon[pokemon.name];
+                return (
+                    <div key={index} className="pokemon">
+                        <Link to={`/pokemon/${index + 1}`}>
+                            <img src={detalles ? detalles.sprites.front_default : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`} alt={pokemon.name} />
+                            <p>{pokemon.name}</p>
+                            {detalles && <p>Altura: {detalles.height}</p>}
+                            {detalles && <p>Peso: {detalles.weight}</p>}
+
+                        </Link>
+                    </div>
+                )
+            })}
             </div>
         </div>
         <button onClick={peticion}>Cargar más</button>

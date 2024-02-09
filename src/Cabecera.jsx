@@ -13,7 +13,7 @@ function Cabecera() {
                 <nav className='navbar'>
                     <div className='img-nav'>
                         {/* <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="PokeApi logo" /> */}
-                        <img src="./img/Pokeball-PNG-Image.webp" alt="" />
+                        {/* <img src="./img/Pokeball-PNG-Image.webp" alt="" /> */}
                     </div>
                     <ul>
                         <Navegacion></Navegacion>
