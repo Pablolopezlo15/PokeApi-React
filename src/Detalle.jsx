@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Cabecera from './cabecera';
 import './App.css';
 import './Detalle.css';
 
@@ -25,7 +24,6 @@ function Detalle() {
     
   return (
     <>
-        <Cabecera />
         <div className='detalle'>
             {detallePokemon.data && (
                 <>

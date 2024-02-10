@@ -9,8 +9,8 @@ import {
   Outlet,
 } from "react-router-dom";
 
-import Cabecera from './Cabecera.jsx';
-import Pokemon from './Pokemon.jsx'
+import Cabecera from './cabecera';
+import Pokemon from './Pokemon.jsx';
 import Detalle from './Detalle.jsx';
 import Login from './Login.jsx';
 
@@ -46,8 +46,8 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <>
     <RouterProvider router={router}/>
     <Outlet />
-  </React.StrictMode>,
+  </>,
 )

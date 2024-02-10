@@ -5,9 +5,11 @@ import {
 function Navegacion() {
     return (
         <>
-            <Link to="/">Home</Link>
-            <Link to="/pokemon">Pokemons</Link>
-            <Link to="/login">Login</Link>
+        <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/pokemon">Pokemons</Link></li>
+            <li><Link to="/login">Login</Link></li>
+        </ul>
         </>
     );
 }

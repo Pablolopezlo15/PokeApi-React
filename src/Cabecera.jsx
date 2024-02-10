@@ -9,17 +9,21 @@ function Cabecera() {
 
     return (
         <>
-            <header className="cabecera">
-                <nav className='navbar'>
-                    <div className='img-nav'>
-                        {/* <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="PokeApi logo" /> */}
-                        {/* <img src="./img/Pokeball-PNG-Image.webp" alt="" /> */}
-                    </div>
-                    <ul>
-                        <Navegacion></Navegacion>
-                    </ul>
-                </nav>
-            </header>
+    <header>        
+        <div>
+            <label htmlFor="checkboxMenu">
+                <div className='img-menu'>
+                    <img src="./img/5.svg" className="header-icon header-icon-menu fa-solid fa-bars" alt="" />
+                </div>
+            </label>
+            <input style={{display: 'none'}} type="checkbox" id="checkboxMenu"/>
+
+            <nav className="header-nav">
+                <Navegacion />
+            </nav>
+        </div>
+        </header>
+
         </>
     );
 }
