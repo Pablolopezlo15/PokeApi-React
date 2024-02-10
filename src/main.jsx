@@ -1,7 +1,7 @@
 import React, { Children } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './index.css'
+import './assets/css/index.css'
 
 import {
   createBrowserRouter,
@@ -9,7 +9,7 @@ import {
   Outlet,
 } from "react-router-dom";
 
-import Cabecera from './cabecera';
+import Cabecera from './Cabecera.jsx';
 import Pokemon from './Pokemon.jsx';
 import Detalle from './Detalle.jsx';
 import Login from './Login.jsx';

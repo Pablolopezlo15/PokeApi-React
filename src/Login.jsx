@@ -1,8 +1,11 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import auth from "./firebase";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
+
 
     function signInWithGoogle() {
         const provider = new GoogleAuthProvider();
@@ -14,6 +17,8 @@ function Login() {
             const token = credential.accessToken;
             // The signed-in user info.
             const user = result.user;
+            console.log(user);
+            navigate("/");
             // IdP data available using getAdditionalUserInfo(result)
             // ...
           }).catch((error) => {

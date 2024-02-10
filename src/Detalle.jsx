@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './App.css';
-import './Detalle.css';
+import './assets/css/App.css';
+import './assets/css/Detalle.css';
 
 function Detalle() {
     const { id } = useParams();

@@ -133,6 +133,7 @@
     letter-spacing: 2px;
     background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: 0.3s;
   }
@@ -140,6 +141,7 @@
   .submit-button:hover span {
     background: #2E2E2E;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: 0.3s;
   }
@@ -203,7 +205,7 @@
     position: absolute;
     top: 25%;
     left: 10%;
-    animation: rotate_4991 1s linear infinite;
+    animation: rotate_4991 2s linear infinite;
   }
   
   @keyframes rotate_4991 {
@@ -211,8 +213,20 @@
       transform: rotate(0);
     }
   
+    25% {
+      transform: rotate(70deg);
+    }
+
+    50% {
+      transform: rotate(0deg);
+    }
+
+    75% {
+      transform: rotate(-70deg);
+    }
+
     100% {
-      transform: rotate(360deg);
+      transform: rotate(0deg);
     }
   }
   
@@ -240,25 +254,10 @@
   
   .pword, .pword2 {
     position: absolute;
-    font-size: 13px;
+    font-size: 35px;
     opacity: 0;
-    animation: pulse-animation_0011 1s infinite;
   }
-  
-  @keyframes pulse-animation_0011 {
-    0% {
-      transform: rotateZ(-30deg) scale(1);
-    }
-  
-    50% {
-      transform: rotateZ(-30deg) scale(1.1);
-    }
-  
-    100% {
-      transform: rotateZ(-30deg) scale(1);
-    }
-  }
-  
+
   .pword {
     top: 30%;
     left: 72%;
