@@ -1,0 +1,42 @@
+#pokemon-adivinar {
+    filter: brightness(0);
+}
+
+.name::first-letter{
+    text-transform: uppercase;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botones-opciones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.botones-opciones button{
+    min-width: 100px;
+    padding: 0.5rem;
+    background-color: red;
+    border: 3px solid black;
+    border-radius: 25px;
+}
+
+.container-juego{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-enunciado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

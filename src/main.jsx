@@ -12,6 +12,7 @@ import {
 import Cabecera from './Cabecera.jsx';
 import Pokemon from './Pokemon.jsx';
 import Detalle from './Detalle.jsx';
+import JuegoAdivinar from './JuegoAdivinar.jsx';
 import Login from './Login.jsx';
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: '/pokemon/:id',
         element: <Detalle />,
+      },
+      {
+        path: '/juegoAdivinar',
+        element: <JuegoAdivinar />,
       },
       {
         path: '/login',
