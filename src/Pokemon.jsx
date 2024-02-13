@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './assets/css/App.css'
 import './assets/css/Pokemon.css'
 
@@ -144,6 +142,10 @@ function Pokemon() {
                 })}
                 </div>
             </div>
+            <article id='preload'>
+                    {preloader && <div className="o-pokeball c-loader u-tada"></div>}
+            </article>
+            <br />
             <div className="container-final">
                 <button className="button" onClick={peticion}>
                     <img src="../img/pokeball.svg" className='pokeball' alt="" />
@@ -151,9 +153,6 @@ function Pokemon() {
                   <span className="go">More</span>
                   <span className="pword"><i className="ri-arrow-down-s-line"></i></span>
                 </button>
-                <article id='preload'>
-                    {preloader && <div className="o-pokeball c-loader u-tada"></div>}
-                </article>
             </div>
         </>
     )

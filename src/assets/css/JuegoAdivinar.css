@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .botones-opciones{
@@ -17,21 +18,33 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .botones-opciones button{
-    min-width: 100px;
-    padding: 0.5rem;
+    font-size: larger;
+    min-width: 200px;
+    padding: 1rem;
     background-color: red;
     border: 3px solid black;
     border-radius: 25px;
 }
 
+
+.botones-opciones button:hover{
+    cursor: pointer;
+}
+
 .container-juego{
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.container-juego img{
+    width: 400px;
 }
 
 .container-enunciado {
@@ -39,4 +52,35 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width: 450px){
+    .botones-opciones{
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        min-width: 150px;
+    }
+    .botones-opciones button{
+        min-width: 150px;
+    }
+
+    .container-juego img{
+        width: 220px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .botones-opciones button{
+        min-width: 150px;
+    }
+
+    
+}
+
+@media screen and (max-width: 600px){
+    .botones-opciones button{
+        min-width: 120px;
+    }
+    
 }

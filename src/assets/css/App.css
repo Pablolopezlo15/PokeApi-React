@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Lexend', sans-serif;
   }
   .name::first-letter{
     text-transform: uppercase;
 }
  .container {
+  
     width: 100%;
     display: flex;
     justify-content: center;

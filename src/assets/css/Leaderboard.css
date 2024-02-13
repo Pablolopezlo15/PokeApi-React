@@ -1,0 +1,69 @@
+/* Estilos para la tabla del leaderboard */
+.leaderboard-container {
+    margin: 0 auto;
+    max-width: 600px; /* Ajusta el ancho máximo según necesites */
+    padding: 20px;
+}
+
+.leaderboard-title {
+    color: red;
+    text-align: center;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-header {
+    background-color: red;
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+}
+.leaderboard-cell {
+    padding: 12px 15px;
+    text-align: center;
+}
+.leaderboard-cell:nth-child(even) {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.leaderboard-row:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.leaderboard-row:hover {
+    background-color: #ddd;
+}
+
+/* Media Query para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+    .leaderboard-table {
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    .leaderboard-header,
+    .leaderboard-cell {
+        padding: 8px;
+    }
+}
+
+
+.gold {
+    background-color: gold;
+}
+
+.silver {
+    background-color: silver;
+}
+
+.bronze {
+    background-color: #cd7f32; /* Color bronce */
+}

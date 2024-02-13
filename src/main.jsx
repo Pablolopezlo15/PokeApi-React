@@ -14,6 +14,7 @@ import Pokemon from './Pokemon.jsx';
 import Detalle from './Detalle.jsx';
 import JuegoAdivinar from './JuegoAdivinar.jsx';
 import Login from './Login.jsx';
+import Leaderboard from './Leaderboard.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login />,
       },
+      {
+        path: '/leaderboard',
+        element: <Leaderboard />,
+      }
     ],
   },
 ]);
