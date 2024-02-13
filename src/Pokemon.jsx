@@ -17,12 +17,15 @@ function Pokemon() {
     const [valueInputBuscar, setValueInputBuscar] = useState('');
     const [pokemonBuscado, setPokemonBuscado] = useState(null);
     const [hover, setHover] = useState(false);
+    const [preloader, setPreloader] = useState(false);
 
 
     function peticion() {
+        setPreloader(true);
         fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=9`)
             .then((response) => response.json())
             .then((data) => {
+                setPreloader(false);
                 setPokemons(prevPokemons => [...prevPokemons, ...data.results]);
                 setOffset(prevOffset => prevOffset + 9);
     
@@ -34,9 +37,11 @@ function Pokemon() {
     }
 
     function peticionDetalles(pokemon) {
+        setPreloader(true);
         fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
             .then((response) => response.json())
             .then((data) => {
+                setPreloader(false);
                 setDetallePokemon(prevDetalle => ({...prevDetalle, [pokemon]: data}));
                 console.log(data);
             });
@@ -139,14 +144,16 @@ function Pokemon() {
                 })}
                 </div>
             </div>
-            <div className="container">
+            <div className="container-final">
                 <button className="button" onClick={peticion}>
                     <img src="../img/pokeball.svg" className='pokeball' alt="" />
                     <img src="../img/pikapika.svg" className='pika' alt="" />
                   <span className="go">More</span>
                   <span className="pword"><i className="ri-arrow-down-s-line"></i></span>
-                  {/* <span className="pword2">pika</span> */}
                 </button>
+                <article id='preload'>
+                    {preloader && <div className="o-pokeball c-loader u-tada"></div>}
+                </article>
             </div>
         </>
     )

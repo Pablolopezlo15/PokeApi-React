@@ -7,11 +7,14 @@ import './assets/css/Detalle.css';
 function Detalle() {
     const { id } = useParams();
     const [detallePokemon, setDetallePokemon] = useState({});
-    
+    const [preloader, setPreloader] = useState(false);
+
     function peticionDetalles() {
+        setPreloader(true);
         fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
         .then((response) => response.json())
         .then((data) => {
+            setPreloader(false);
             setDetallePokemon(prevDetalle => ({...prevDetalle, data}));
             console.log(data);
         });
@@ -25,6 +28,9 @@ function Detalle() {
   return (
     <>
         <div className='detalle'>
+                    <article id='preload'>
+                        {preloader && <div className="o-pokeball c-loader u-tada"></div>}
+                    </article>
             {detallePokemon.data && (
                 <>
                 <div className='card-Pokemon'>
