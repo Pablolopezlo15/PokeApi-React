@@ -53,7 +53,7 @@ function Leaderboard() {
                 <table class="leaderboard-table">
                     <thead>
                         <tr>
-                            <th class="leaderboard-header">Ranking</th>
+                            <th class="leaderboard-header"># Ranking</th>
                             <th class="leaderboard-header">Username</th>
                             <th class="leaderboard-header">Puntuación</th>
                         </tr>
