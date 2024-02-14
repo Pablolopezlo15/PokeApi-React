@@ -48,22 +48,22 @@ function Leaderboard() {
 
     return (
         <>
-            <div class="leaderboard-container">
-                <h1 class="leaderboard-title">Leaderboard</h1>
-                <table class="leaderboard-table">
+            <div className="leaderboard-container">
+                <h1 className="leaderboard-title">Leaderboard</h1>
+                <table className="leaderboard-table">
                     <thead>
                         <tr>
-                            <th class="leaderboard-header"># Ranking</th>
-                            <th class="leaderboard-header">Username</th>
-                            <th class="leaderboard-header">Puntuación</th>
+                            <th className="leaderboard-header"># Ranking</th>
+                            <th className="leaderboard-header">Username</th>
+                            <th className="leaderboard-header">Puntuación</th>
                         </tr>
                     </thead>
                     <tbody>
                         {leaderboardData.map((item, index) => (
-                        <tr key={index} class={`leaderboard-row ${index === 0 ? 'gold' : (index === 1 ? 'silver' : (index === 2 ? 'bronze' : ''))}`}>
-                            <td class="leaderboard-cell">{index + 1}</td>
-                            <td class="leaderboard-cell">{item.userName}</td>
-                            <td class="leaderboard-cell">{item.puntuacion}</td>
+                        <tr key={index} className={`leaderboard-row ${index === 0 ? 'gold' : (index === 1 ? 'silver' : (index === 2 ? 'bronze' : ''))}`}>
+                            <td className="leaderboard-cell">{index + 1}</td>
+                            <td className="leaderboard-cell">{item.userName}</td>
+                            <td className="leaderboard-cell">{item.puntuacion}</td>
                         </tr>
                         ))}
                     </tbody>

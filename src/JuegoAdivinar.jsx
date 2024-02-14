@@ -2,11 +2,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, query, where, getDocs, doc, setDoc, addDoc } from "firebase/firestore";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './assets/css/JuegoAdivinar.css';
 
 
 function JuegoAdivinar() {
+    const navigate = useNavigate();
     const [detallePokemon, setDetallePokemon] = useState({});
     const [nombreAleatorio1, setNombreAleatorio1] = useState("");
     const [nombreAleatorio2, setNombreAleatorio2] = useState("");
@@ -27,7 +28,11 @@ function JuegoAdivinar() {
         console.log('Usuario logueado: ' + userName + ' con uid: ' + uid);
     }
 
-
+    function isLogged() {
+        if (!auth.currentUser) {
+            navigate("/login");
+        }
+    }
 
     function generarNumeroAleatorio() {
        return Math.floor(Math.random() * 1025) + 1;
@@ -140,6 +145,7 @@ function JuegoAdivinar() {
 }
 
     useEffect(() => {
+        isLogged();
         setPuntuacion(0);
         Jugar();
     }, []);
