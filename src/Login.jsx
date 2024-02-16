@@ -1,13 +1,18 @@
-import { GoogleAuthProvider, GithubAuthProvider ,signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, GithubAuthProvider ,signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { getAuth } from "firebase/auth";
-import auth from "./firebase";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import auth from './firebase';
 import './assets/css/Login.css';
 
 function Login() {
   const navigate = useNavigate();
   const [errorPorCorreoExisitente, seterrorPorCorreoExisitente] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const auth = getAuth();
+
 
     function signInWithGoogle() {
         const provider = new GoogleAuthProvider();
@@ -64,38 +69,51 @@ function Login() {
           });
     }
 
-  function registrarse () {
-    createUserWithEmailAndPassword(auth, this.email, this.password)
-        .then((userCredential) => {
-            console.log("Registrado");
-            const user = userCredential.user;
-            
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const errorMessageemail = error.customData.email;
-        });
+    function registrarse(e) {
+      e.preventDefault();
+      createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+              console.log("Registrado");
+              const user = userCredential.user;
+              user.displayName = name;
+              // Aquí podrías hacer algo con el nombre, como actualizar el perfil del usuario
+              updateProfile(user, {
+                displayName: name,
+              }).then(() => {
+                navigate("/");
+              }).catch((error) => {
+                // Ocurrió un error
+                console.log(error);
+              });
+          })
+          .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              console.log(errorCode);
+              if (errorCode === 'auth/email-already-in-use') {
+                seterrorPorCorreoExisitente('Ya existe un usuario con la misma dirección de correo electrónico.');
+              }
+          });
     }
 
 
-  function iniciarSesionEmail() {
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, this.email, this.password)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        this.email = "";
-        this.password = "";
-  
-        this.router.navigate(['/monedas/user.uid']);
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
-  }
+    function iniciarSesionEmail(e) {
+      e.preventDefault();
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          console.log(user);
+          navigate("/");
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode);
+        });
+    }
 
   return (
     <>
@@ -122,21 +140,22 @@ function Login() {
                                   Continue with Github
                                 </button>
                                     <form className="flip-card__form" action="">
-                                        <input className="flip-card__input" name="email" placeholder="Email" type="email" />
-                                        <input className="flip-card__input" name="password" placeholder="Password" type="password" />
+                                        <input type="email" className="flip-card__input" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+                                        <input type="password" className="flip-card__input" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
                                         <button className="flip-card__btn" onClick={iniciarSesionEmail}>Let`s go!</button>
                                     </form>
                                 </div>
                             
                                 <div className="flip-card__back">
-                                    <div className="title">Sign up</div>
-                                        <form className="flip-card__form" action="">
-                                            <input className="flip-card__input" placeholder="Name" type="text" />
-                                            <input className="flip-card__input" name="email" placeholder="Email" type="email" />
-                                            <input className="flip-card__input" name="password" placeholder="Password" type="password" />
-                                            <button className="flip-card__btn" onClick={registrarse}>Confirm!</button>
-                                        </form>
-                                    </div>
+                                  <div className="title">Sign up</div>
+                                  {errorPorCorreoExisitente && <p>{errorPorCorreoExisitente}</p>}
+                                  <form className="flip-card__form" action="">
+                                    <input className="flip-card__input" placeholder="Name" type="text" value={name} onChange={e => setName(e.target.value)} />
+                                    <input className="flip-card__input" placeholder="Email" type="email" value={email} onChange={e => setEmail(e.target.value)} />
+                                    <input className="flip-card__input" placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+                                    <button className="flip-card__btn" onClick={registrarse}>Confirm!</button>
+                                  </form>
+                                </div>
                                 </div>
                     </label>
                 </div>

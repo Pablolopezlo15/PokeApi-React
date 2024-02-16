@@ -1,0 +1,83 @@
+.site-footer {
+    background-color: #ff0000;
+    padding: 20px 0;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.footer-nav {
+    font-size: 14px;
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-item {
+    display: inline-block;
+    margin: 0 10px;
+    color: #ffffff;
+}
+
+.developer {
+    font-weight: bold;
+}
+
+.copy-year {
+    font-style: italic;
+}
+
+
+
+.Btn-github {
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: .4s;
+    cursor: pointer;
+    position: relative;
+    background-color: rgb(31, 31, 31);
+    overflow: hidden;
+  }
+  
+  .svgIcon {
+    transition-duration: .3s;
+  }
+  
+  .svgIcon path {
+    fill: white;
+  }
+  
+  .text {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    width: 120px;
+    font-weight: 600;
+    opacity: 0;
+    transition-duration: .4s;
+  }
+  
+  .Btn-github:hover {
+    width: 110px;
+    transition-duration: .4s;
+    border-radius: 30px;
+  }
+  
+  .Btn-github:hover .text {
+    opacity: 1;
+    transition-duration: .4s;
+  }
+  
+  .Btn-github:hover .svgIcon {
+    opacity: 0;
+    transition-duration: .3s;
+  } 

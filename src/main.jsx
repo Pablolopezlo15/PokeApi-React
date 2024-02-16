@@ -15,6 +15,7 @@ import Detalle from './Detalle.jsx';
 import JuegoAdivinar from './JuegoAdivinar.jsx';
 import Login from './Login.jsx';
 import Leaderboard from './Leaderboard.jsx';
+import Footer from './Footer.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       <>
         <Cabecera /> 
         <Outlet />
+        <Footer />
       </>
     ),
 

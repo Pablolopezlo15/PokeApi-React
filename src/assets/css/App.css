@@ -25,3 +25,96 @@
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
   }
+
+
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para el encabezado */
+.site-header {
+  background-color: #FFCB05;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  margin: 0;
+  font-size: 36px;
+  color: #333; /* Cambiar color para mayor contraste */
+}
+
+.main-nav {
+  margin-top: 20px;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-item {
+  display: inline;
+  margin-right: 20px;
+}
+
+.nav-item:last-child {
+  margin-right: 0;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #333; /* Cambiar color para mayor contraste */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-item a:hover {
+  color: #FFCB05; /* Cambiar color al pasar el ratón */
+}
+
+/* Estilos para las secciones */
+.section {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #f7f7f7; /* Fondo gris claro */
+}
+
+.inicio-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.text-inicio {
+  text-align: left;
+  max-width: 400px;
+}
+.inicio-section img {
+  width: 250px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.pokedex-section {
+  background-color: #f0f0f0; /* Fondo gris más claro */
+}
+
+.equipo-section {
+  background-color: #e0e0e0; /* Fondo gris */
+}
+
+.contacto-section {
+  background-color: #d0d0d0; /* Fondo gris más oscuro */
+}
+
+/* Estilos para el pie de página */
+.site-footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
