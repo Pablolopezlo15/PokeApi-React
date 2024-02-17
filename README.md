@@ -42,11 +42,6 @@ Inicia el server
 ```
 
 
-## Author
-
-- [@Pablolopezlo15](https://www.github.com/Pablolopezlo15)
-
-
 ## Screenshots
 Pokedex
 
@@ -63,4 +58,9 @@ MiniJuego
 Tabla de puntuaciones
 
 ![App Screenshot](https://i.imgur.com/jpECfx8.png)
+
+
+## Author
+
+- [@Pablolopezlo15](https://www.github.com/Pablolopezlo15)
 
