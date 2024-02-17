@@ -1,8 +1,66 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# PokeGame con React y PokeApi
 
-Currently, two official plugins are available:
+En esta web podrás cargar toda la pokedex y buscar pokemon por el nombre. Además podrás disfrutar de un minijuego el cual consistirá en adivinar el pokemon. Cuantos más adivines en racha, más alto estarás en la tabla de puntaciones formada por todos los jugadores del minijuego.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Datos obtenidos de: https://pokeapi.co/
+
+
+## Demo
+Prueba la web aqui: 
+https://pokeapi-react-c2918.web.app/
+
+
+![Logo](https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png)
+
+
+## Ejecutar en local
+
+Clona el proyecto
+
+```bash
+  git clone https://github.com/Pablolopezlo15/PokeApi-React.git
+```
+
+Ve el directorio del proyecto
+
+```bash
+  cd my-project
+```
+
+Instala dependencias
+
+```bash
+  npm install
+```
+-Cambia la configuracion de firebase
+
+Inicia el server
+
+```bash
+  npm run dev
+```
+
+
+## Author
+
+- [@Pablolopezlo15](https://www.github.com/Pablolopezlo15)
+
+
+## Screenshots
+Pokedex
+
+![App Screenshot](https://i.imgur.com/mMgMqxh.png)
+
+Detalles de los Pokemon
+
+![App Screenshot](https://i.imgur.com/OAjutjb.png)
+
+MiniJuego 
+
+![App Screenshot](https://i.imgur.com/MYmapf6.png)
+
+Tabla de puntuaciones
+
+![App Screenshot](https://i.imgur.com/jpECfx8.png)
+
