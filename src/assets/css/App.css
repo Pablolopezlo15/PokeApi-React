@@ -4,8 +4,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Lexend', sans-serif;
-  }
+}
   .name::first-letter{
     text-transform: uppercase;
 }
@@ -29,10 +28,16 @@
 
 /* Estilos generales */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Lexend, sans-serif;
   margin: 0;
   padding: 0;
+  background-image: url('https://cdn.sortiraparis.com/images/80/98390/869370-pokemon-le-dernier-episode-du-dessin-anime-diffuse-25-ans-apres-ses-debuts.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
 
 /* Estilos para el encabezado */
 .site-header {
@@ -80,7 +85,6 @@ body {
 .section {
   padding: 50px 20px;
   text-align: center;
-  background-color: #f7f7f7; /* Fondo gris claro */
 }
 
 .inicio-section {
@@ -89,9 +93,16 @@ body {
   align-items: center;
   flex-wrap: wrap;
 }
+
 .text-inicio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   text-align: left;
   max-width: 400px;
+  min-height: 350px;
+  gap: 20px;
 }
 .inicio-section img {
   width: 250px;
@@ -99,17 +110,7 @@ body {
   margin-right: 20px;
 }
 
-.pokedex-section {
-  background-color: #f0f0f0; /* Fondo gris más claro */
-}
 
-.equipo-section {
-  background-color: #e0e0e0; /* Fondo gris */
-}
-
-.contacto-section {
-  background-color: #d0d0d0; /* Fondo gris más oscuro */
-}
 
 /* Estilos para el pie de página */
 .site-footer {
@@ -117,4 +118,80 @@ body {
   color: #fff;
   text-align: center;
   padding: 20px;
+}
+
+.Btn-inicio {
+  background-color: #FFCB05;
+  color: #333;
+  padding: 10px 20px;
+  border: black 2px solid;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  width: 150px;
+  text-align: center;
+}
+
+
+.error404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0 0 10px 0 black;
+}
+
+.error404 ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.error404 ul li {
+  background-color: red;
+  padding: 1rem;
+  border-radius: 25px;
+  list-style: none;
+}
+.volver {
+  background-color: #FFCB05;
+  color: #333;
+  padding: 10px 20px;
+  border: black 2px solid;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  width: 150px;
+  text-align: center;
+}
+@keyframes bounce {
+  0% { transform: scale(1.0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1.0); }
+}
+
+.error404 ul li:hover {
+  cursor: pointer;
+  background-color: #FFCB05;
+  animation: bounce 0.5s ease;
+  transition: background-color 0.3s ease;
+}
+
+.error404 ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }

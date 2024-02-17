@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useEffect, useState } from 'react';
-import './assets/css/cabecera.css';
+import '../assets/css/cabecera.css';
 import Navegacion from './Navegacion';
 import { getAuth, signOut, onAuthStateChanged  } from 'firebase/auth';
 import { Link } from 'react-router-dom';

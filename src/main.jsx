@@ -9,13 +9,16 @@ import {
   Outlet,
 } from "react-router-dom";
 
-import Cabecera from './Cabecera.jsx';
-import Pokemon from './Pokemon.jsx';
-import Detalle from './Detalle.jsx';
-import JuegoAdivinar from './JuegoAdivinar.jsx';
-import Login from './Login.jsx';
-import Leaderboard from './Leaderboard.jsx';
-import Footer from './Footer.jsx';
+import Cabecera from './Components/Cabecera.jsx';
+import Pokemon from './Components/Pokemon.jsx';
+import Detalle from './Components/Detalle.jsx';
+import JuegoAdivinar from './Components/JuegoAdivinar.jsx';
+import Login from './Components/Login.jsx';
+import Leaderboard from './Components/Leaderboard.jsx';
+import Footer from './Components/Footer.jsx';
+import PrivateRoute from './Components/PrivateRoute.jsx';
+import Error404 from './Components/Error404.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -42,7 +45,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/juegoAdivinar',
-        element: <JuegoAdivinar />,
+        element: 
+        <PrivateRoute Component={JuegoAdivinar} />
+        ,
       },
       {
         path: '/login',
@@ -51,7 +56,11 @@ const router = createBrowserRouter([
       {
         path: '/leaderboard',
         element: <Leaderboard />,
-      }
+      },
+      {
+        path: "*",
+        element: <Error404 />,
+      },
     ],
   },
 ]);

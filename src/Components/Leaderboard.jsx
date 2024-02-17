@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, query, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
-import './assets/css/Leaderboard.css';
+import '../assets/css/Leaderboard.css';
 
 function Leaderboard() {
     const [leaderboardData, setLeaderboardData] = useState([]);
@@ -17,7 +17,6 @@ function Leaderboard() {
     if (auth.currentUser) {
         let uid = auth.currentUser.uid;
         let userName = auth.currentUser.displayName;
-        console.log('Usuario logueado: ' + userName + ' con uid: ' + uid);
     }
 
     async function datosLeaderboard() {

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
-import './assets/css/App.css'
-import './assets/css/Pokemon.css'
+import { useNavigate } from 'react-router-dom'
+import { Await } from 'react-router-dom'
+import '../assets/css/App.css'
+import '../assets/css/Pokemon.css'
 
 import {
     Link
@@ -13,10 +15,9 @@ function Pokemon() {
     const [pokemons, setPokemons] = useState([]);
     const [detallePokemon, setDetallePokemon] = useState({});
     const [valueInputBuscar, setValueInputBuscar] = useState('');
-    const [pokemonBuscado, setPokemonBuscado] = useState(null);
     const [hover, setHover] = useState(false);
     const [preloader, setPreloader] = useState(false);
-
+    const navigate = useNavigate();
 
     function peticion() {
         setPreloader(true);
@@ -45,22 +46,6 @@ function Pokemon() {
             });
     }
 
-    function buscar(event) {
-        event.preventDefault();
-        console.log(valueInputBuscar);
-        if (valueInputBuscar === '') {
-            setPokemonBuscado(valueInputBuscar);
-            return;
-        }
-        peticionDetalles(valueInputBuscar);
-        setPokemonBuscado(valueInputBuscar);
-
-    }
-
-    useEffect(() => {
-        peticion();
-    }, []);
-
     const typeColor = {
         bug: "#26de81",
         dragon: "#ffeaa7",
@@ -80,14 +65,24 @@ function Pokemon() {
         water: "#0190FF",
       };
 
-      let styleCard = (color) => {
-        card.style.background = `radial-gradient(circle at 50% 0%, ${color} 36%, #ffffff 36%)`;
-      };
+    function buscar(e) {
+        navigate(`/pokemon/${valueInputBuscar}`);
+    }
+
+    const enterKey = (event) => {
+        if (event.key === 'Enter') {
+            buscar(valueInputBuscar);
+        }
+    };
+
+    useEffect(() => {
+        peticion();
+    }, []);
 
     return (
         <>
             <div className="input-group">
-                <input id="input-field" type="text" value={valueInputBuscar} onChange={(e) => setValueInputBuscar(e.target.value)} placeholder='Buscar...' />
+                <input id="input-field" type="text" value={valueInputBuscar} onChange={(e) => setValueInputBuscar(e.target.value)} onKeyUp={enterKey} placeholder='Buscar...' />
 	        	<button onClick={buscar} className="submit-button"><span>SEARCH</span></button>
 	        </div>
 

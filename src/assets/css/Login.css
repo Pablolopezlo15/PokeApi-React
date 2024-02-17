@@ -234,3 +234,11 @@
   button:hover {
     transform: scale(1.02);
   }
+
+  .error-sesion{
+    background-color: #ffffff;
+    border-radius: 25px;
+    padding: 1rem;
+    color: rgb(255, 0, 0);
+    font-weight: bolder;
+  }
