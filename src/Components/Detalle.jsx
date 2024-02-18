@@ -98,11 +98,7 @@ function Detalle() {
             setNoEncontrado(false);
         }
         else {
-            setPreloader(true);
-            setTimeout(() => {
-                setPreloader(false);
-                setNoEncontrado(true);
-            }, 1000);
+            setNoEncontrado(true);
         }
     }, [detallePokemon]);
 
