@@ -5,7 +5,7 @@ function Error404(){
         <div className="container">
             <div div className="error404">
                 <h1>¡No hemos encontrado la página!</h1>
-                <img src="./public/img/error404.png" alt="" />
+                <img src="./img/error404.png" alt="" />
                 <h3>¿Qué quieres hacer?</h3>
                 <Navegacion />
             </div>

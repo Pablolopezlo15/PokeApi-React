@@ -1,9 +1,10 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import '../assets/css/App.css';
 import '../assets/css/Detalle.css';
+import Chart from 'chart.js/auto';
 
 function Detalle() {
     const { id } = useParams();
@@ -12,6 +13,8 @@ function Detalle() {
     const [imagenSeleccionada, setImagenSeleccionada] = useState('');
     const [noEncontrado, setNoEncontrado] = useState(false);
     const navigate = useNavigate();
+    const chartContainer = useRef(null);
+    const chartRef = useRef(null);
 
     function peticionDetalles() {
         setPreloader(true);
@@ -44,6 +47,47 @@ function Detalle() {
         water: "#0190FF",
       };
 
+
+      function chart(abilities) {
+        if (chartRef.current) {
+            chartRef.current.destroy();
+        }
+    
+        const selectedAbilities = abilities.map(ability => {
+            return {
+                name: ability.ability.name,
+                height: ability.slot,
+            }
+        });
+    
+        const data = {
+            labels: detallePokemon.data ? detallePokemon.data.stats.map((stat) => stat.stat.name) : [],
+            datasets: [
+                {
+                    label: 'Estadísticas',
+                    data: detallePokemon.data ? detallePokemon.data.stats.map((stat) => stat.base_stat) : [],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                },
+            ],
+        };
+    
+        const options = {
+            scales: {
+                r: {
+                    suggestedMin: 0,
+                    suggestedMax: 5,
+                },
+            },
+        };
+    
+        const ctx = chartContainer.current.getContext('2d');
+        chartRef.current = new Chart(ctx, { type: 'radar', data, options });
+    }
+
+    
+
     useEffect(() => {
         peticionDetalles();
     }, []);
@@ -58,6 +102,12 @@ function Detalle() {
         }
     }, [detallePokemon]);
 
+    useEffect(() => {
+        if (detallePokemon.data) {
+            chart(detallePokemon.data.abilities);
+        }
+    }, [detallePokemon]);
+
   return (
     <div class='container'>    
         <div class='detalle'>
@@ -69,7 +119,7 @@ function Detalle() {
                     <div class='error404'>
                         <h1>No se encontró el Pokémon</h1>
                         <Link to={"/pokemon"} className='volver'>Volver</Link>
-                        <img src="../public/img/error404.png" alt="" />
+                        <img src="../img/error404.png" alt="" />
                     </div>
                 </div>
             }
@@ -84,7 +134,12 @@ function Detalle() {
                                 <h2 className='name-pokemon'>{detallePokemon.data.name}</h2>
                                 <span className="pokedexid">#{id}</span>
                             </div>
-                            <span class='tipo'>{detallePokemon.data.types[0].type.name}</span>
+                            <div className='tipo-container'>
+                                {detallePokemon.data.types.map((typeObj, index) => (
+                                    <span key={index} className='tipo' style={{backgroundColor: typeColor[typeObj.type.name]}}>{typeObj.type.name}</span>
+                                ))}
+                            </div>
+
                             <div class='imagen'>
                                     <img src={imagenSeleccionada} alt="showdown_front_default" />
                                 </div>
@@ -128,12 +183,16 @@ function Detalle() {
                                     <h3>Especies</h3>
                                     <p>{detallePokemon.data.species.name}</p>
                                 </div>
+
                             </div>
+
+                        </div>
+                        <div className='stats-grafico'>
+                            <h3>Gráfico radial</h3>
+                            <canvas ref={chartContainer} width='400' height='400'></canvas>
                         </div>
                     </div>
-                    <div className='stats'>
-                        
-                    </div>
+
                 </>
             )}
         </div>

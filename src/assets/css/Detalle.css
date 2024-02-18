@@ -118,6 +118,19 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
+.tipo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+}
+.tipo{
+    border: #000 2px solid;
+    border-radius: 25px;
+    padding: 0.2rem;
+}
 
 .estatus, .habilidades, .movimientos, .especies {
     background-color: #fff;
@@ -157,5 +170,35 @@
     }
     .informacion {
         width: 100%;
+    }
+}
+
+.stats-grafico {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    width: 500px;
+    min-width: 250px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Estilos para pantallas de tamaño medio (tabletas, 768px y más) */
+@media (min-width: 768px) {
+    .stats {
+        flex-direction: row;
+    }
+}
+
+/* Estilos para pantallas pequeñas (teléfonos móviles, menos de 768px) */
+@media (max-width: 767px) {
+    .stats {
+        flex-direction: column;
     }
 }
