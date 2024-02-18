@@ -92,6 +92,11 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  background-color: white;
+  padding: 50px 20px;
+  border-radius: 25px;
+  box-shadow: 0 0 10px 0 black;
+
 }
 
 .text-inicio {

@@ -76,7 +76,6 @@ function Detalle() {
 
             {detallePokemon.data && (               
                 <>
-                    {noEncontrado && <h1>No se encontró el Pokémon</h1>}
                     <div class='tarjeta-pokemon'>
                         <div class='tarjeta-cabecera' style={{ 
                             background: detallePokemon.data ? typeColor[detallePokemon.data.types[0].type.name] : ''
@@ -100,7 +99,6 @@ function Detalle() {
                             </div>
 
                         <div class='informacion'>
-                            <h1>Datos</h1>
                             <div class='estadisticas'>
                                 <div class='estatus'>
                                     <h3>Estatus</h3>
