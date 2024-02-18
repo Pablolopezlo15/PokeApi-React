@@ -94,11 +94,15 @@ function Detalle() {
 
     useEffect(() => {
         if (detallePokemon.data) {
-            setNoEncontrado(false);
             setImagenSeleccionada(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${detallePokemon.data.id}.png`);
+            setNoEncontrado(false);
         }
         else {
-            setNoEncontrado(true);
+            setPreloader(true);
+            setTimeout(() => {
+                setPreloader(false);
+                setNoEncontrado(true);
+            }, 1000);
         }
     }, [detallePokemon]);
 
