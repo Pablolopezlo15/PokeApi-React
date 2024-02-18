@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 function Cabecera() {
     const [user, setUser] = useState(null);
     const auth = getAuth();
+
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             setUser(user);
@@ -40,8 +41,9 @@ function Cabecera() {
             <header>    
                 <div className='menu-arriba'>
                     <div className='img-logo'>
+                    <Link to="/">
                         <img src="https://imgs.search.brave.com/zQMYyofQY4Vhe6e7CFikPhx1B1CRmQ1mVHYu1se6TgA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly8xMDAw/bWFyY2FzLm5ldC93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMC8w/MS9Mb2dvLVBva2Vt/b24tNTAweDMxMy5w/bmc" alt="Logo Pokemon" />
-                    </div>
+                    </Link>                    </div>
                     <div className='menu-derecha'>
 
                         <label className='label-menu' htmlFor="checkboxMenu">
