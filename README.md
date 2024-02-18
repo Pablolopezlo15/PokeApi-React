@@ -49,8 +49,8 @@ Pokedex
 
 Detalles de los Pokemon
 
-![App Screenshot](https://i.imgur.com/OAjutjb.png)
-
+![App Screenshot](https://i.imgur.com/40OSD5C.png)
+![App Screenshot](https://i.imgur.com/KFxu2Lj.png)
 MiniJuego 
 
 ![App Screenshot](https://i.imgur.com/MYmapf6.png)
