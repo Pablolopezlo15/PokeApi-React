@@ -42,7 +42,7 @@ function Cabecera() {
                 <div className='menu-arriba'>
                     <div className='img-logo'>
                     <Link to="/">
-                        <img src="https://imgs.search.brave.com/zQMYyofQY4Vhe6e7CFikPhx1B1CRmQ1mVHYu1se6TgA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly8xMDAw/bWFyY2FzLm5ldC93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMC8w/MS9Mb2dvLVBva2Vt/b24tNTAweDMxMy5w/bmc" alt="Logo Pokemon" />
+                        <img src="../img/PokeGame.png" alt="Logo Pokemon" />
                     </Link>                    </div>
                     <div className='menu-derecha'>
 
