@@ -8,7 +8,7 @@ Datos obtenidos de: https://pokeapi.co/
 
 ## Demo
 Prueba la web aqui: 
-https://pokeapi-react-c2918.firebaseapp.com/
+https://pokeapi-react-6917e.web.app/
 
 
 ![Logo](https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png)
